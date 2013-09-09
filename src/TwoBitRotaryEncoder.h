@@ -22,7 +22,9 @@ using namespace Galago;
 class TwoBitRotaryEncoder 
 {
 public:
-	TwoBitRotaryEncoder(IO::Pin &pinLow, IO::Pin &pinHigh);
+	TwoBitRotaryEncoder();
+	
+	void bind(IO::Pin &pinLow, IO::Pin &pinHigh);
 	
 	signed char readPulse();
 	

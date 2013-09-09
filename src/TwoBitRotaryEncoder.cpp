@@ -5,12 +5,14 @@ using namespace Controller;
 
 static char ENC_STATES[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
 
-TwoBitRotaryEncoder::TwoBitRotaryEncoder(IO::Pin &pinLow, IO::Pin &pinHigh)
-	: _v(0)
+TwoBitRotaryEncoder::TwoBitRotaryEncoder() : _v(0) {}
+
+void TwoBitRotaryEncoder::bind(IO::Pin &pinLow, IO::Pin &pinHigh)
 {
 	_pinLow.bind(pinLow);
-	_pinLow.setInput();
 	_pinHigh.bind(pinHigh);
+	
+	_pinLow.setInput();
 	_pinHigh.setInput();
 }
 
