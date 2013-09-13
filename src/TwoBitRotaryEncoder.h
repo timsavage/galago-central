@@ -3,7 +3,7 @@
 
 #include <GalagoAPI.h>
 
-namespace Controller {
+namespace GC {
 
 using namespace Galago;
 
@@ -34,6 +34,6 @@ private:
 	byte _v;
 };
 
-}	//ns Controller
+} // GC
 
-#endif //defined __TWO_BIT_ROTARY_ENCODER_H__
+#endif //__TWO_BIT_ROTARY_ENCODER_H__

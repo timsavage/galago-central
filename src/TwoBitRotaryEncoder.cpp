@@ -1,7 +1,7 @@
 #include "TwoBitRotaryEncoder.h"
 
 using namespace Galago;
-using namespace Controller;
+using namespace GC;
 
 static char ENC_STATES[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
 
@@ -14,6 +14,8 @@ void TwoBitRotaryEncoder::bind(IO::Pin &pinLow, IO::Pin &pinHigh)
 	
 	_pinLow.setInput();
 	_pinHigh.setInput();
+	
+	readPulse();
 }
 
 signed char TwoBitRotaryEncoder::readPulse()

@@ -2,7 +2,7 @@
 #include "TwoBitRotaryEncoder.h"
 
 using namespace Galago;
-using namespace Controller;
+using namespace GC;
 
 TwoBitRotaryEncoder encoder;
 
