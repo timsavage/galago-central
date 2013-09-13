@@ -22,16 +22,16 @@ using namespace Galago;
 class TwoBitRotaryEncoder 
 {
 public:
-	TwoBitRotaryEncoder();
-	
-	void bind(IO::Pin &pinLow, IO::Pin &pinHigh);
-	
-	signed char readPulse();
-	
+    TwoBitRotaryEncoder();
+    
+    void bind(IO::Pin &pinLow, IO::Pin &pinHigh);
+    
+    signed char readPulse();
+    
 private:
-	IO::Pin _pinLow;
-	IO::Pin _pinHigh;
-	byte _v;
+    IO::Pin _pinLow;
+    IO::Pin _pinHigh;
+    byte _v;
 };
 
 } // GC
