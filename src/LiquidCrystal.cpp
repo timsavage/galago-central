@@ -5,7 +5,7 @@ using namespace GC;
 
 inline void sleep(int interval) 
 { 
-    int sleepTime = 75 * interval;
+    int sleepTime = 50 * interval;
     // Perform a bunch of no-op instructions to simulate sleeping 
     for(int i = 0; i < sleepTime; i++) 
         __asm volatile("nop"::); 
@@ -52,22 +52,25 @@ void LiquidCrystal::bind(IO::Pin &rs, IO::Pin &enable,
 void LiquidCrystal::start()
 {
     _rs.setOutput();
+    _rs = false;
     _enable.setOutput();
+    _enable = false;
     
     if (_displayfunction & LCD_8BITMODE) {
-        command(LCD_FUNCTIONSET | _displayfunction);
+        write8Bits(LCD_FUNCTIONSET | LCD_8BITMODE);
         sleep(450);
+        write8Bits(LCD_FUNCTIONSET | LCD_8BITMODE);
+        sleep(100);
+        write8Bits(LCD_FUNCTIONSET | LCD_8BITMODE);
     } else {
         write4Bits(0x3);
         sleep(450);
         write4Bits(0x3);
-        sleep(450);
+        sleep(100);
         write4Bits(0x3);
-        sleep(150);
         write4Bits(0x2);
-        write4Bits(0xC);
     }
-
+    command(LCD_FUNCTIONSET | _displayfunction);
     command(LCD_DISPLAYCONTROL | _displaycontrol);
     
     // clear it off
